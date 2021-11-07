@@ -13,7 +13,7 @@ public class EmployeeServiceImpl implements EmployeeService{
             new Employee("Сидоров", "Сидор"),
     };
     @Override
-    public Employee addEmployee(String lastName, String firstName) throws IntServErrException {  //throws - чтобы внутри этого метода не обрабатывалось исключение
+    public Employee addEmployee(String lastName, String firstName) throws IntServErrException {
         for (int i = 0; i < employee.length; i++) {
             if (employee[i] == null) {
                 employee[i] = new Employee(lastName, firstName);
@@ -24,16 +24,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee removeEmployee(String lastName, String firstName) throws NotFoundRuntimeException {    //throws - чтобы внутри этого метода не обрабатывалось исключение
+    public Employee removeEmployee(String lastName, String firstName) throws NotFoundRuntimeException {
                   Employee removeEmp = new Employee(lastName, firstName);
         for (int i = 0; i < employee.length; i++) {
             if (employee[i].equals(removeEmp)) {
                 employee[i] = null;
                 return removeEmp;
             }
-        }  // если в массиве сотрудников[i].сотрудник отсутствует
-            //то сотрудника нет
-        //вернуть  переменную
+        }
         throw new NotFoundRuntimeException();
     }
 

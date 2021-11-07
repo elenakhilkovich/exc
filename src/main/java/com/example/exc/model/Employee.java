@@ -2,24 +2,15 @@ package com.example.exc.model;
 
 import java.util.Objects;
 
-public class Employee {                                // класс Employee, в нем строки фамилия-имя
-    //private  int id;
-    private final String firstName;                   //final - пот, что нет сеттера
+public class Employee {
+    private final String firstName;
     private final String lastName;
-    //private int department;
-    //private double salary;
-    //private static int counter = 0;               //это счетчик, отвечает за id
+
 
     public Employee(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        // this.id = counter++;                    //просматривает всех работников
-        // this.department = department;
-        // this.salary = salary;
-        // this.name = name;
     }
-
-    //public int getId() {        return id;    }
 
     public String getFirstName() {
         return firstName;
@@ -28,23 +19,6 @@ public class Employee {                                // класс Employee, �
     public String getLastName() {
         return lastName;
     }
-
-    //public int getDepartment() {
-    //    return department;
-    //}
-
-    //public void setDepartment(int department) {
-    //   this.department = department;
-    //}
-
-    //public double getSalary() {
-    //    return salary;
-    //}
-
-    // public void setSalary(int salary) {
-    //    this.salary = salary;
-    //}   //void - ничего не возвращает
-
 
     @Override
     public String toString() {

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/employee")       //вынесла общую часть у GetMapping
-@RestController                                 //должен быть метод
-public class ExcController {                   //у ирины EmmployeeController
-    private final EmployeeService employeeService;        //из класса EmployeeService
+@RequestMapping("/employee")
+@RestController
+public class ExcController {
+    private final EmployeeService employeeService;
 
     public ExcController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -23,7 +23,7 @@ public class ExcController {                   //у ирины EmmployeeControll
     }
 
     @GetMapping("/remove")
-    public String removeEmployee(@RequestParam String lastName, @RequestParam String firstName){
+    public String removeEmployee(@RequestParam String lastName, @RequestParam String firstName) {
         return "Сотрудник " + employeeService.removeEmployee(lastName, firstName) + " удален.";
     }
 
@@ -31,4 +31,4 @@ public class ExcController {                   //у ирины EmmployeeControll
     public Employee findEmployee(@RequestParam String lastName, @RequestParam String firstName) throws NotFoundRuntimeException {
         return employeeService.findEmployee(lastName, firstName);
     }
-    }
+}
